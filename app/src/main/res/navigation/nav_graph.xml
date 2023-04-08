@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/savedPicturesFragment">
+
+    <fragment
+        android:id="@+id/savedPicturesFragment"
+        android:name="com.lafimsize.mypixabaypicture.view.SavedPicturesFragment"
+        android:label="SavedPicturesFragment" >
+        <action
+            android:id="@+id/action_savedPicturesFragment_to_insertFragment"
+            app:destination="@id/insertFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/insertFragment"
+        android:name="com.lafimsize.mypixabaypicture.view.InsertFragment"
+        android:label="InsertFragment" >
+        <action
+            android:id="@+id/action_insertFragment_to_pixabayFragment"
+            app:destination="@id/pixabayFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pixabayFragment"
+        android:name="com.lafimsize.mypixabaypicture.view.PixabayFragment"
+        android:label="PixabayFragment" />
+</navigation>

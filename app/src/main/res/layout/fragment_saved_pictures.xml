@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootLayout"
+    >
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/container"
+        >
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvSaveds"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:tint="@color/white"
+        app:srcCompat="@android:drawable/ic_input_add"
+
+        android:layout_margin="24dp"
+
+        app:fabSize="normal"
+
+        android:contentDescription="fdew"
+        app:layout_anchorGravity="end|bottom"
+        app:layout_anchor="@id/rvSaveds"
+        />
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
