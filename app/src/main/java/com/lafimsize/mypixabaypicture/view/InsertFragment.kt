@@ -30,4 +30,9 @@ class InsertFragment:Fragment(R.layout.fragment_insert) {
 
 
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        fragmentBinding=null
+    }
 }
