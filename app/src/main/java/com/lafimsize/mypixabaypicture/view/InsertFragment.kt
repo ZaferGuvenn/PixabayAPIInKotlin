@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.lafimsize.mypixabaypicture.R
 import com.lafimsize.mypixabaypicture.databinding.FragmentInsertBinding
+import javax.inject.Inject
 
 class InsertFragment:Fragment(R.layout.fragment_insert) {
 

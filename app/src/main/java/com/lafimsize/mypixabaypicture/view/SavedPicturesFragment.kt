@@ -4,10 +4,14 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.bumptech.glide.RequestManager
 import com.lafimsize.mypixabaypicture.R
 import com.lafimsize.mypixabaypicture.databinding.FragmentSavedPicturesBinding
+import javax.inject.Inject
 
-class SavedPicturesFragment:Fragment(R.layout.fragment_saved_pictures) {
+class SavedPicturesFragment
+@Inject
+constructor(glide: RequestManager) :Fragment(R.layout.fragment_saved_pictures) {
 
     private var fragmentBinding:FragmentSavedPicturesBinding?=null
 
