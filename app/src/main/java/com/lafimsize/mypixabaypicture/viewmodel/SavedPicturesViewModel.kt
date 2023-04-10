@@ -7,7 +7,7 @@ import com.lafimsize.mypixabaypicture.util.PixabayImageRepository
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class SavedPicturesFragment
+class SavedPicturesViewModel
 
 @Inject
 constructor(private val pixabayImageRepository: PixabayImageRepository)
