@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 data class ImageResult(
 
     val downloads:Int,
-    val previewUrl:String,
+    val previewURL:String,
 
     @SerializedName("user_id")
     val userId:Int

@@ -5,7 +5,6 @@ import android.os.Bundle
 import com.lafimsize.mypixabaypicture.R
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
-
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
@@ -13,9 +12,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        supportFragmentManager.fragmentFactory=pixabayAppFragmentFactory
         setContentView(R.layout.activity_main)
 
-        supportFragmentManager.fragmentFactory=pixabayAppFragmentFactory
 
 
 

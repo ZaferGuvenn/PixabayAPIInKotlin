@@ -7,7 +7,7 @@
     <fragment
         android:id="@+id/savedPicturesFragment"
         android:name="com.lafimsize.mypixabaypicture.view.SavedPicturesFragment"
-        android:label="SavedPicturesFragment" >
+        android:label="SavedPicturesFragment">
         <action
             android:id="@+id/action_savedPicturesFragment_to_insertFragment"
             app:destination="@id/insertFragment" />
@@ -15,7 +15,7 @@
     <fragment
         android:id="@+id/insertFragment"
         android:name="com.lafimsize.mypixabaypicture.view.InsertFragment"
-        android:label="InsertFragment" >
+        android:label="InsertFragment">
         <action
             android:id="@+id/action_insertFragment_to_pixabayFragment"
             app:destination="@id/pixabayFragment" />

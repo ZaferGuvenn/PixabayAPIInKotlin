@@ -1,16 +1,16 @@
-package com.lafimsize.mypixabaypicture.util
+package com.lafimsize.mypixabaypicture.repo
 
 import androidx.lifecycle.LiveData
 import com.lafimsize.mypixabaypicture.api.RetrofitAPI
 import com.lafimsize.mypixabaypicture.model.ImageResponse
-import com.lafimsize.mypixabaypicture.repo.IPixabayImagesRepository
 import com.lafimsize.mypixabaypicture.roomdb.SavedPicture
 import com.lafimsize.mypixabaypicture.roomdb.SavedPictureDao
+import com.lafimsize.mypixabaypicture.util.Resource
 import javax.inject.Inject
 
-class PixabayImageRepository
-@Inject
-constructor(private val savedPictureDao:SavedPictureDao, private val retrofitAPI: RetrofitAPI) :IPixabayImagesRepository {
+class PixabayImageRepository @Inject constructor(
+    private val savedPictureDao:SavedPictureDao,
+    private val retrofitAPI: RetrofitAPI) :IPixabayImagesRepository {
     override suspend fun insertImg(savedPicture: SavedPicture) {
         savedPictureDao.insertImage(savedPicture)
     }
@@ -31,12 +31,12 @@ constructor(private val savedPictureDao:SavedPictureDao, private val retrofitAPI
             if (response.isSuccessful){
                 response.body()?.let {
                     return@let Resource.success(it)
-                }?:Resource.error("İnternete bağlanılamadı!", null)
+                }?: Resource.error("Response hatası!", null)
             }else{
-                Resource.error("İnternet bağlantınızı kontrol ediniz!",null)
+                Resource.error("İnternet bağlantınızı kontrol ediniz!", null)
             }
         }catch (e:java.lang.Exception){
-            Resource.error("Bağlantı hatası!",null)
+            Resource.error("Bağlantı hatası!", null)
         }
 
     }

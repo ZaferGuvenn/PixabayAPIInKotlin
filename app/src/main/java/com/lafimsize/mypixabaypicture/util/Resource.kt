@@ -1,11 +1,4 @@
 package com.lafimsize.mypixabaypicture.util
-
-enum class Status{
-    Success,
-    Error,
-    Loading
-}
-
 data class Resource<out T> (
     val status:Status,
     val data:T?,
@@ -29,4 +22,10 @@ data class Resource<out T> (
     }
 
 
+}
+
+enum class Status{
+    Success,
+    Error,
+    Loading
 }

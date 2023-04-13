@@ -5,11 +5,13 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.lafimsize.mypixabaypicture.roomdb.SavedPicture
-import com.lafimsize.mypixabaypicture.util.PixabayImageRepository
+import com.lafimsize.mypixabaypicture.repo.PixabayImageRepository
 import com.lafimsize.mypixabaypicture.util.Resource
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+@HiltViewModel
 class InsertViewModel
 @Inject
 constructor(private val pixabayImageRepository: PixabayImageRepository):ViewModel() {

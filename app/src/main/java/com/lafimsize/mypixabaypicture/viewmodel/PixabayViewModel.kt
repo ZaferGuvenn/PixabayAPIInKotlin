@@ -5,11 +5,14 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.lafimsize.mypixabaypicture.model.ImageResponse
-import com.lafimsize.mypixabaypicture.util.PixabayImageRepository
+import com.lafimsize.mypixabaypicture.repo.PixabayImageRepository
 import com.lafimsize.mypixabaypicture.util.Resource
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+
+@HiltViewModel
 class PixabayViewModel
 @Inject
 constructor(private val pixabayImageRepository: PixabayImageRepository):ViewModel() {
@@ -33,6 +36,7 @@ constructor(private val pixabayImageRepository: PixabayImageRepository):ViewMode
     fun searchForImage(query:String){
 
         if (query.isEmpty()) return
+
 
         images.value=Resource.loading(null)
 

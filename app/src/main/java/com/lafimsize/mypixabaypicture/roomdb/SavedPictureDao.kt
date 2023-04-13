@@ -12,6 +12,6 @@ interface SavedPictureDao {
     @Delete
     suspend fun deleteImage(savedPicture: SavedPicture)
 
-    @Query("Select * from gallery")
+    @Query("SELECT * FROM SavedPicture")
     fun getAllImages():LiveData<List<SavedPicture>>
 }

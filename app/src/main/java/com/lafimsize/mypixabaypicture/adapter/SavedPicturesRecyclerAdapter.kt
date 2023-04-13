@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.RequestManager
 import com.lafimsize.mypixabaypicture.databinding.SavedsRowBinding
 import com.lafimsize.mypixabaypicture.roomdb.SavedPicture
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 class SavedPicturesRecyclerAdapter
@@ -28,8 +29,9 @@ constructor(val glide: RequestManager)
             return oldItem==newItem
         }
 
-        override fun areContentsTheSame(oldItem: SavedPicture, newItem: SavedPicture)=
-            oldItem==newItem
+        override fun areContentsTheSame(oldItem: SavedPicture, newItem: SavedPicture):Boolean{
+            return oldItem==newItem
+        }
     }
 
     private val listDiffer=AsyncListDiffer(this,diffUtilItemCallback)
@@ -40,7 +42,7 @@ constructor(val glide: RequestManager)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SavedPicturesViewHolder {
         val inflater=LayoutInflater.from(parent.context)
-        binding= SavedsRowBinding.inflate(inflater)
+        binding= SavedsRowBinding.inflate(inflater,parent,false)
 
         return SavedPicturesViewHolder(binding)
     }

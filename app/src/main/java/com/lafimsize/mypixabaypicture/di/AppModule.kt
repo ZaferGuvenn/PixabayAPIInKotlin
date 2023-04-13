@@ -9,8 +9,10 @@ import com.lafimsize.mypixabaypicture.api.RetrofitAPI
 import com.lafimsize.mypixabaypicture.repo.IPixabayImagesRepository
 import com.lafimsize.mypixabaypicture.roomdb.SavedPictureDao
 import com.lafimsize.mypixabaypicture.roomdb.SavedPictureDatabase
-import com.lafimsize.mypixabaypicture.util.PixabayImageRepository
+import com.lafimsize.mypixabaypicture.repo.PixabayImageRepository
 import com.lafimsize.mypixabaypicture.util.Util.BASE_URL
+import com.lafimsize.mypixabaypicture.viewmodel.InsertViewModel
+import com.lafimsize.mypixabaypicture.viewmodel.SavedPicturesViewModel
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -29,7 +31,7 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun injectRoomDb(@ActivityContext context: Context) =
+    fun injectRoomDb(@ApplicationContext context: Context) =
         Room.databaseBuilder(context,SavedPictureDatabase::class.java, "SavedPicturesDb").build()
 
     @Singleton
@@ -47,10 +49,11 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun injectGlide(@ApplicationContext context: Context)=Glide.with(context)
+    fun injectGlide(@ApplicationContext context: Context)=Glide
+        .with(context)
         .setDefaultRequestOptions(
             RequestOptions()
-                .placeholder(R.drawable.ic_launcher_foreground)
+                .placeholder(R.mipmap.loading)
                 .error(R.drawable.ic_launcher_foreground)
         )
 
@@ -59,6 +62,7 @@ object AppModule {
     @Provides
     fun injectNormalRepo(dao:SavedPictureDao,api:RetrofitAPI)=
         PixabayImageRepository(dao,api) as IPixabayImagesRepository
+
 
 
 }
