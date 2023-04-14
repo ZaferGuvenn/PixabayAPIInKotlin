@@ -51,7 +51,7 @@ object AppModule {
         .setDefaultRequestOptions(
             RequestOptions()
                 .placeholder(R.drawable.ic_launcher_foreground)
-                .error(R.drawable.ic_launcher_background)
+                .error(R.mipmap.error)
         )
 
 

@@ -7,7 +7,7 @@ data class Resource<out T> (
     companion object{
 
         fun <T> success(data:T?):Resource<T>{
-            return Resource(Status.Success,data,null)
+            return Resource(Status.Success,data,"Resim başarıyla kaydedildi.")
         }
 
         fun <T> error(msg:String,data:T?):Resource<T>{

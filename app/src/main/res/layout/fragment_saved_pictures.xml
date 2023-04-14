@@ -4,6 +4,9 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/rootLayout"
+
+    android:background="#02155C"
+    android:padding="10dp"
     >
 
 
@@ -17,7 +20,9 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvSaveds"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

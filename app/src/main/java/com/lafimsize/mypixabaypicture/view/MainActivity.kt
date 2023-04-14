@@ -2,6 +2,7 @@ package com.lafimsize.mypixabaypicture.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.WindowManager
 import com.lafimsize.mypixabaypicture.R
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -17,6 +18,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
+        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
 
     }
 }

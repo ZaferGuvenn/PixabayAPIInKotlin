@@ -18,7 +18,6 @@ import com.lafimsize.mypixabaypicture.R
 import com.lafimsize.mypixabaypicture.adapter.PixabayRecyclerAdapter
 import com.lafimsize.mypixabaypicture.databinding.FragmentPixabayBinding
 import com.lafimsize.mypixabaypicture.util.Status
-import com.lafimsize.mypixabaypicture.util.myFlow
 import com.lafimsize.mypixabaypicture.viewmodel.PixabayViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Job
@@ -74,11 +73,7 @@ constructor(val pixabayRecyclerAdapter: PixabayRecyclerAdapter) :Fragment(R.layo
 
 
         pixabayRecyclerAdapter.setOnItemClickListener {
-            println("***")
-            println(it)
             viewModel.setSelectedImage(it)
-            println( myFlow.mSF.value)
-            println("diger sayfa....")
             findNavController().popBackStack()
         }
 
@@ -100,12 +95,18 @@ constructor(val pixabayRecyclerAdapter: PixabayRecyclerAdapter) :Fragment(R.layo
                             it.previewURL
                         }
                         pixabayRecyclerAdapter.pixabayImageUrlList=urls
-                        println(urls)
+
+                        if (urls.isEmpty()){
+                            fragmentBinding?.tvNothingFound?.visibility=View.VISIBLE
+                        }else{
+                            fragmentBinding?.tvNothingFound?.visibility=View.GONE
+                        }
+
                     }
 
                     Status.Loading->{
 
-                        //fragmentBinding?.progressBar?.visibility=View.VISIBLE
+                        fragmentBinding?.progressBar?.visibility=View.VISIBLE
 
                     }
 
