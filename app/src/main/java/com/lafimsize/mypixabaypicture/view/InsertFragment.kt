@@ -73,7 +73,6 @@ constructor(val glide: RequestManager) :Fragment(R.layout.fragment_insert) {
     }
 
     private fun observeLiveData(){
-
         viewModel.insertImgMsg.observe(viewLifecycleOwner){
             Toast.makeText(context,it.message,Toast.LENGTH_SHORT).show()
         }
