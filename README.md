@@ -9,7 +9,8 @@ Retrofit,
 Glide,
 LiveData,
 Coroutines,
-Room
+Room,
+StateFlow
 
 Will be test with:
 Espresso,
