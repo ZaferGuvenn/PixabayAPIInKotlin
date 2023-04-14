@@ -7,12 +7,17 @@ import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
 import com.lafimsize.mypixabaypicture.R
 import com.lafimsize.mypixabaypicture.databinding.FragmentInsertBinding
+import com.lafimsize.mypixabaypicture.util.SelectedLink
 import com.lafimsize.mypixabaypicture.viewmodel.InsertViewModel
+import com.lafimsize.mypixabaypicture.viewmodel.PixabayViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -22,6 +27,7 @@ constructor(val glide: RequestManager) :Fragment(R.layout.fragment_insert) {
 
     private var fragmentBinding:FragmentInsertBinding?=null
     private lateinit var viewModel:InsertViewModel
+    private lateinit var viewModel2:PixabayViewModel
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -38,6 +44,7 @@ constructor(val glide: RequestManager) :Fragment(R.layout.fragment_insert) {
         }
 
         requireActivity().onBackPressedDispatcher.addCallback(callback)
+
 
         binding.btnSave.setOnClickListener {
             viewModel.savingPicture(
@@ -56,6 +63,13 @@ constructor(val glide: RequestManager) :Fragment(R.layout.fragment_insert) {
 
         observeLiveData()
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+        fragmentBinding?.let {
+            glide.load(SelectedLink.linkStateFlow.value).into(it.ivSelectImage)
+        }
     }
 
     private fun observeLiveData(){

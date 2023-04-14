@@ -57,6 +57,8 @@ constructor(val glide:RequestManager):RecyclerView.Adapter<PixabayRecyclerAdapte
 
         holder.binding.apply {
 
+
+
             glide.load(imageUrl).into(this.ivPixabay)
 
         }

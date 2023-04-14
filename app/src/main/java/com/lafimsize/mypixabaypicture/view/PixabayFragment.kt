@@ -18,8 +18,10 @@ import com.lafimsize.mypixabaypicture.R
 import com.lafimsize.mypixabaypicture.adapter.PixabayRecyclerAdapter
 import com.lafimsize.mypixabaypicture.databinding.FragmentPixabayBinding
 import com.lafimsize.mypixabaypicture.util.Status
+import com.lafimsize.mypixabaypicture.util.myFlow
 import com.lafimsize.mypixabaypicture.viewmodel.PixabayViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -51,10 +53,15 @@ constructor(val pixabayRecyclerAdapter: PixabayRecyclerAdapter) :Fragment(R.layo
 
         binding.etSearch.addTextChangedListener {
 
+            var job:Job?=null
+
+
+
             it?.let {
                 if (it.length<2) return@let
                 else{
-                    lifecycleScope.launch {
+                    job?.cancel()
+                    job=lifecycleScope.launch {
                         delay(2000)
                         viewModel.searchForImage(it.toString())
                     }
@@ -65,6 +72,15 @@ constructor(val pixabayRecyclerAdapter: PixabayRecyclerAdapter) :Fragment(R.layo
 
         observeLiveData()
 
+
+        pixabayRecyclerAdapter.setOnItemClickListener {
+            println("***")
+            println(it)
+            viewModel.setSelectedImage(it)
+            println( myFlow.mSF.value)
+            println("diger sayfa....")
+            findNavController().popBackStack()
+        }
 
     }
 
@@ -89,7 +105,7 @@ constructor(val pixabayRecyclerAdapter: PixabayRecyclerAdapter) :Fragment(R.layo
 
                     Status.Loading->{
 
-                        fragmentBinding?.progressBar?.visibility=View.VISIBLE
+                        //fragmentBinding?.progressBar?.visibility=View.VISIBLE
 
                     }
 

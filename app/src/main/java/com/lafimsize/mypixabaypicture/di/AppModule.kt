@@ -11,12 +11,9 @@ import com.lafimsize.mypixabaypicture.roomdb.SavedPictureDao
 import com.lafimsize.mypixabaypicture.roomdb.SavedPictureDatabase
 import com.lafimsize.mypixabaypicture.repo.PixabayImageRepository
 import com.lafimsize.mypixabaypicture.util.Util.BASE_URL
-import com.lafimsize.mypixabaypicture.viewmodel.InsertViewModel
-import com.lafimsize.mypixabaypicture.viewmodel.SavedPicturesViewModel
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.qualifiers.ActivityContext
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
@@ -53,8 +50,8 @@ object AppModule {
         .with(context)
         .setDefaultRequestOptions(
             RequestOptions()
-                .placeholder(R.mipmap.loading)
-                .error(R.drawable.ic_launcher_foreground)
+                .placeholder(R.drawable.ic_launcher_foreground)
+                .error(R.drawable.ic_launcher_background)
         )
 
 

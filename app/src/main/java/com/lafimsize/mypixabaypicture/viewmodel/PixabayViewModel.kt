@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.lafimsize.mypixabaypicture.model.ImageResponse
 import com.lafimsize.mypixabaypicture.repo.PixabayImageRepository
 import com.lafimsize.mypixabaypicture.util.Resource
+import com.lafimsize.mypixabaypicture.util.SelectedLink
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -22,14 +23,12 @@ constructor(private val pixabayImageRepository: PixabayImageRepository):ViewMode
     val imgs:LiveData<Resource<ImageResponse>>
         get()=images
 
-    private val selectedImageUrl=MutableLiveData<String>()
-    val selectedImgUrl:LiveData<String>
-        get()=selectedImageUrl
+
 
 
 
     fun setSelectedImage(url:String){
-        selectedImageUrl.value=url
+        SelectedLink().selected(url)
     }
 
 
