@@ -12,7 +12,8 @@ Coroutines,
 Room,
 StateFlow
 
-Will be test with:
+Tested with=
+Hilt,
 Espresso,
 Mockito,
 Truth
