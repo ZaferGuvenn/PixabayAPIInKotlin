@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.lafimsize.mypixabaypicture.repo.IPixabayImagesRepository
 import com.lafimsize.mypixabaypicture.roomdb.SavedPicture
 import com.lafimsize.mypixabaypicture.repo.PixabayImageRepository
 import com.lafimsize.mypixabaypicture.util.Resource
@@ -14,7 +15,7 @@ import javax.inject.Inject
 @HiltViewModel
 class InsertViewModel
 @Inject
-constructor(private val pixabayImageRepository: PixabayImageRepository):ViewModel() {
+constructor(private val pixabayImageRepository: IPixabayImagesRepository):ViewModel() {
 
 
     private var insertImageMessage=MutableLiveData<Resource<SavedPicture>>()

@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.lafimsize.mypixabaypicture.model.ImageResponse
+import com.lafimsize.mypixabaypicture.repo.IPixabayImagesRepository
 import com.lafimsize.mypixabaypicture.repo.PixabayImageRepository
 import com.lafimsize.mypixabaypicture.util.Resource
 import com.lafimsize.mypixabaypicture.util.SelectedLink
@@ -16,7 +17,7 @@ import javax.inject.Inject
 @HiltViewModel
 class PixabayViewModel
 @Inject
-constructor(private val pixabayImageRepository: PixabayImageRepository):ViewModel() {
+constructor(private val pixabayImageRepository: IPixabayImagesRepository):ViewModel() {
 
 
     private val images=MutableLiveData<Resource<ImageResponse>>()
