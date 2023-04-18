@@ -22,7 +22,7 @@ class InsertFragment
 constructor(val glide: RequestManager) :Fragment(R.layout.fragment_insert) {
 
     private var fragmentBinding:FragmentInsertBinding?=null
-    private lateinit var viewModel:InsertViewModel
+    lateinit var viewModel:InsertViewModel
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -76,10 +76,10 @@ constructor(val glide: RequestManager) :Fragment(R.layout.fragment_insert) {
             when(it.status){
 
                 Status.Success-> {
-
+                    findNavController().popBackStack()
                     Toast.makeText(context,"Resim başarıyla kaydedildi!",Toast.LENGTH_SHORT).show()
                     viewModel.resetInsertImgMsg()
-                    findNavController().popBackStack()
+
                 }
                 Status.Error->{
                     Toast.makeText(context,it.message?:"",Toast.LENGTH_SHORT).show()
