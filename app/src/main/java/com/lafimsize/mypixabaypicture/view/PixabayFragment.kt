@@ -32,7 +32,7 @@ constructor(val pixabayRecyclerAdapter: PixabayRecyclerAdapter) :Fragment(R.layo
 
     private var fragmentBinding:FragmentPixabayBinding?=null
 
-    private lateinit var viewModel:PixabayViewModel
+    lateinit var viewModel:PixabayViewModel
 
 
 

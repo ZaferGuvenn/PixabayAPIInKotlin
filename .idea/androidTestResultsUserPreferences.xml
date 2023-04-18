@@ -74,6 +74,20 @@
             </AndroidTestResultsTableState>
           </value>
         </entry>
+        <entry key="-1460564776">
+          <value>
+            <AndroidTestResultsTableState>
+              <option name="preferredColumnWidths">
+                <map>
+                  <entry key="14ce5684" value="120" />
+                  <entry key="Duration" value="90" />
+                  <entry key="Tests" value="360" />
+                  <entry key="Xiaomi&#10; Redmi Note 8" value="120" />
+                </map>
+              </option>
+            </AndroidTestResultsTableState>
+          </value>
+        </entry>
         <entry key="-1327950228">
           <value>
             <AndroidTestResultsTableState>
